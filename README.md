@@ -4,7 +4,7 @@
 
 以下を参考に、各自でForkしてください。
 
-https://gitlab3.alpha.co.jp/alpha/study/skill-check/wikis/startup
+https://github.com/apbak44615/skill-check/wiki/%E3%81%AF%E3%81%98%E3%82%81%E3%81%8B%E3%81%9F
 
 以下の環境で実施可能です。
 
