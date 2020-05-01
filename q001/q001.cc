@@ -8,7 +8,7 @@
 
 using namespace std;
 
-static int main(char** argv) {
+int main() {
 	cout << "Hello World." << endl;
 	return 0;
 }
