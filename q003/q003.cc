@@ -24,8 +24,41 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <algorithm>
+#include <regex>
 
 using namespace std;
 
 // 参考:以下でファイルを開くことが出来る
 // ifstream ifs("data.txt");
+
+int main() {
+    ifstream ifs("data.txt");
+    char c;
+    string text;
+    while(ifs.get(c)) {
+        text += c;
+    }
+    replace(text.begin(), text.end(), '\n', ' ');
+
+    //できない・・
+    //string tmp = regex_replace(text, regex("[;.,]"), "");
+
+    text.erase(remove(text.begin(), text.end(), ';'), text.end());
+    text.erase(remove(text.begin(), text.end(), '.'), text.end());
+    text.erase(remove(text.begin(), text.end(), ','), text.end());
+
+    vector<string> words;
+    vector<string> words_unique;
+    stringstream ss{text};
+    string buf;
+    while(getline(ss, buf, ' ')) {
+        words.push_back(buf);
+    }
+    words_unique = words;
+    sort(words_unique.begin(), words_unique.end());
+    words_unique.erase(unique(words_unique.begin(), words_unique.end()), words_unique.end());
+    for(string word : words_unique) {
+        cout << word << '=' << count(words.begin(), words.end(), word) << endl;
+    }
+}
